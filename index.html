@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <script src="jquery.js"></script> -->
+	<script src="dropzone.min.js"></script>
+	<link rel="stylesheet" href="dropzone.min.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css.css">
+	<title></title>
+</head>
+
+<body>
+	<div class="container">
+		<form role="form" enctype="multipart/form-data" action="procesar.php" method="POST">
+			<input hidden id="file" name="file" />
+			<div class="dropzone dropzone-file-area" id="fileUpload">
+				<div class="dz-default dz-message">
+					<h3 class="sbold">Arrastre la imagen aqui</h3>
+					<span>Tambén puede dar click para buscar en sus archivos</span>
+				</div>
+			</div>
+			<button type="submit" id="enviar">Submit</button>
+		</form>
+	</div>
+	<script type="text/javascript" src="js.js"></script>
+</body>
+
+</html>

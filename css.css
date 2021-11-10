@@ -1,0 +1,7 @@
+.container {
+    display: block;
+    text-align: center;
+    width: 250px;
+    height: 250px;
+    background-color: #f2f2f2;
+}
