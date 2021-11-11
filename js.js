@@ -2,6 +2,7 @@
 
 Dropzone.options.fileUpload = {
   url: 'procesar.php',
+  paramName: "my_file",
   addRemoveLinks: true,
   uploadMultiple: false,
   autoProcessQueue: false,
@@ -17,11 +18,11 @@ Dropzone.options.fileUpload = {
     var btnEnviar = document.querySelector("#enviar");
     btnEnviar.addEventListener("click", function (e) {
       /* 
-      **** --- No usaremos la forma ajax propia de la libreria---
+      **** --- Ejecuta el proceso via ajax y envia  $_FILES---
       */
-      //e.preventDefault();
-      //e.stopPropagation();
-      //myDropzone.processQueue();
+      e.preventDefault();
+      e.stopPropagation();
+      myDropzone.processQueue();
       console.log('btn activado')
     })
   },
@@ -32,14 +33,14 @@ Dropzone.options.fileUpload = {
     Array.prototype.map.call(divProgress, function (r) {
       r.style.display = 'none';
     });
-    //extra
-    let fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
-    fileReader.onloadend = function () {
-      var inputFile = document.querySelector("#file");
-      let content = fileReader.result;
-      inputFile.value = content;
-    }
+    /* Extra, si se activa, enviara un archivo base_64 en $_POST */
+    // let fileReader = new FileReader();
+    // fileReader.readAsDataURL(file);
+    // fileReader.onloadend = function () {
+    //   var inputFile = document.querySelector("#file");
+    //   let content = fileReader.result;
+    //   inputFile.value = content;
+    // }
     done();    // !Very important
   }
 }
